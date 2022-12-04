@@ -9,6 +9,7 @@
     height: 32px;
     border: none;
     padding: 0;
+    cursor: pointer;
 }
 
 .button_function_close:hover {
