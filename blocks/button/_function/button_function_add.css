@@ -6,6 +6,7 @@
     background-image: url(../../../images/Vector.png);
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
 }
 
 .button_function_add:hover {
