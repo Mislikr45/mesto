@@ -1,0 +1,18 @@
+.like {
+    height: 19px;
+    width: 22px;
+    background-color: white;
+    background-image: url(../../images/like.svg);
+    background-repeat: no-repeat; 
+    margin-top: 5px;
+    padding: 0;
+    border: 0;
+}
+
+.like:hover {
+    opacity: 0.5;
+}
+
+.like_active_selected {
+    background-image: url(../../images/like-selected.png);
+}
