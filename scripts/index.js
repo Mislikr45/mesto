@@ -29,7 +29,7 @@ function handleFormSubmit (evt) {
 }
 
 like.addEventListener('click', function(likeElement) {
-    like.classList.toggle('element__like_active_selected')}
+    like.classList.toggle('like_active_selected')}
     )
 
 popupSave.addEventListener('click', handleFormSubmit);
