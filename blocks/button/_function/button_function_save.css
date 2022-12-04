@@ -1,0 +1,28 @@
+.button_function_save {
+  width: 358px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-top: 48px;
+  margin-bottom: 37px;
+  padding: 0;
+}
+
+.button_function_save:hover {
+  opacity: 0.8;
+  
+}
+
+@media screen and (max-width: 880px) {
+  .button_function_save {
+      width: 236px;
+      min-height: 46px;
+      margin-top: 36px;
+      margin-bottom: 23px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17px;
+      letter-spacing: 0em;
+      }
+}
