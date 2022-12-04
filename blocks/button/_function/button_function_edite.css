@@ -1,0 +1,15 @@
+.button_function_edite {
+    width: 24px;
+    height: 24px;
+    background-image: url(../../../images/pencel.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    align-self: center;
+}
+
+@media screen and (max-width: 880px) {
+    .button_function_edite {
+        width: 18px;
+        height: 18px;
+        }
+}
