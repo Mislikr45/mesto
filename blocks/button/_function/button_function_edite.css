@@ -8,9 +8,13 @@
     cursor: pointer;
 }
 
+.button_function_edite:hover {
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 880px) {
-    .button_function_edite {
-        width: 18px;
-        height: 18px;
-        }
+  .button_function_edite {
+    width: 18px;
+    height: 18px;
+  }
 }
