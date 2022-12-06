@@ -1,6 +1,7 @@
 .button_function_close {
     position: absolute;
-    background-image: url(../../../images/Close-Icon.png);
+    background-color: ;
+    background-image: url(../../../images/Close-Icon.svg);
     background-repeat: no-repeat;
     background-size: cover;
     right: -40px;
@@ -10,6 +11,7 @@
     border: none;
     padding: 0;
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .button_function_close:hover {
