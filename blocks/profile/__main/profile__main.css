@@ -4,10 +4,12 @@
     grid-template-rows: 1fr fit-content(18px);
     gap: 11px 21px;
     align-self:center;
+    
 }
 
 @media screen and (max-width: 880px) {
     .profile__main {
         gap: 7px 10px;
+        max-width: 282px;
         }
 }
