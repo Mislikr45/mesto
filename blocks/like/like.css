@@ -13,7 +13,3 @@
 .like:hover {
   opacity: 0.5;
 }
-
-.like_active_selected {
-  background-image: url(../../images/like-selected.png);
-}
