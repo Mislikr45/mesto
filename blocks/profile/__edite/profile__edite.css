@@ -8,12 +8,12 @@
     cursor: pointer;
 }
 
-.profile__edite_edite:hover {
+.profile__edite:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 880px) {
-  .profile__edite_edite {
+  .profile__edite {
     width: 18px;
     height: 18px;
   }
