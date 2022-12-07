@@ -4,12 +4,12 @@ let popup = document.querySelector('.popup');
 let popupContent = popup.querySelector('.popup__content');
 let nameInput = document.querySelector('.popup__input_type_name');
 let aboutInput = document.querySelector('.popup__input_type_about');
-let closeButton = popup.querySelector('.button_function_close');
-let editButton = document.querySelector('.button_function_edite');
+let closeButton = popup.querySelector('.popup__close');
+let editButton = document.querySelector('.profile__edite');
 let profileName = document.querySelector('.profile__name');
 let profileAbout = document.querySelector('.profile__about');
-let like=document.querySelector('.like');
-console.log({nameInput,aboutInput})
+let like=document.querySelector('.element__like');
+
 
 function closePopup () {
   popup.classList.remove('popup_opened');
@@ -29,7 +29,7 @@ function handleFormSubmit (evt) {
 }
 
 like.addEventListener('click', function(likeElement) {
-    like.classList.toggle('like_selected')})
+    like.classList.toggle('element__like_selected')})
 
 popup.addEventListener('submit', handleFormSubmit);
 editButton.addEventListener('click', openPopup);
