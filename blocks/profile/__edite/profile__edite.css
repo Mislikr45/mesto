@@ -6,6 +6,8 @@
     background-position: center;
     align-self: center;
     cursor: pointer;
+    background-color: #000;
+    border: white 1px solid;
 }
 
 .profile__edite:hover {
