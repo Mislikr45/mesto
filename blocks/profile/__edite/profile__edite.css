@@ -8,6 +8,7 @@
     cursor: pointer;
     background-color: #000;
     border: white 1px solid;
+    padding: 0;
 }
 
 .profile__edite:hover {
