@@ -1,89 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="./pages/index.css" rel="stylesheet">
-      <title>Место</title>
-   </head>
-   <body class="page">
-      <div class="page__container">
-         <header class="header">
-            <img src="./images/logo.svg" alt="логотип." class="header__logo" >
-         </header>
-         <main class="content">
-            <section class="profile">
-               <div class="profile__data">
-                  <img class="profile__avatar" alt="фото" src="./images/image.jpg">
-                  <div class="profile__main">
-                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                     <button class="profile__edite" type="button"></button>
-                     <p class="profile__about">Исследователь океана</p>
-                  </div>
-               </div>
-               <button class="button profile__add" type="button" aria-label="Добавить"></button>
-            </section>
-            <section class="elements">
-               <div class="element">
-                  <img  alt="Карачаевск" src="./images/photo.jpg" class="element__image">
-                  <div class="element__data">
-                     <h2 class="element__title">Карачаевск</h2>
-                     <button class="element__like" type="button" aria-label="Лайк"></button>
-                  </div>
-               </div>
-               <div class="element">
-                  <img src="./images/elbrus.png" alt="Эльбрус" class="element__image">
-                  <div class="element__data">
-                     <h2 class="element__title">Эльбрус</h2>
-                     <button class="element__like" type="button" aria-label="Лайк"></button>
-                  </div>
-               </div>
-               <div class="element">
-                  <img src="./images/photo.jpg" alt="Карачаевск" class="element__image">
-                  <div class="element__data">
-                     <h2 class="element__title">Карачаевск</h2>
-                     <button class="element__like" type="button" aria-label="Лайк"></button>
-                  </div>
-               </div>
-               <div class="element">
-                  <img src="./images/dombai.png" alt="Домбай" class="element__image">
-                  <div class="element__data">
-                     <h2 class="element__title">Карачаевск</h2>
-                     <button class="element__like" type="button" aria-label="Лайк"></button>
-                  </div>
-               </div>
-               <div class="element">
-                  <img src="./images/elbrus.png" alt="Гора Эльбрус" class="element__image">
-                  <div class="element__data">
-                     <h2 class="element__title">Гора Эльбрус самая высокая гора в мире </h2>
-                     <button class="element__like" type="button" aria-label="Лайк"></button>
-                  </div>
-               </div>
-               <div class="element">
-                  <img src="./images/dombai.png" alt="Домбай" class="element__image">
-                  <div class="element__data">
-                     <h2 class="element__title">Домбай</h2>
-                     <button class="element__like" type="button" aria-label="Лайк"></button>
-                  </div>
-               </div>
-            </section>
-         </main>
-         <footer class="footer">
-            <p class="footer__copyright">© 2020 Mesto Russia</p>
-         </footer>
-         <div class="popup">
-            <div class="popup__container">
-               <h2 class="popup__title">Редактировать профиль</h2>
-               <form  name="profile__form" class="popup__form">
-                  <input type="text" class="popup__input popup__input_type_name" name="name" >
-                  <input type="text" class="popup__input popup__input_type_about" name="about">
-                  <button class="button popup__save"  type="submit" aria-label="Сохранить">Сохранить</button>
-               </form>
-               <button class="popup__close" type="button" aria-label="Закрыть"></button>
-            </div>
-         </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./pages/index.css" rel="stylesheet">
+    <title>Место</title>
+  </head>
+  <body class="page">
+    <div class="page__container">
+    <header class="header">
+      <img src="./images/logo.svg" alt="логотип." class="header__logo" >
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__data">
+          <img class="profile__avatar" alt="фото" src="./images/image.jpg">
+          <div class="profile__main">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edite" type="button"></button>
+            <p class="profile__about">Исследователь океана</p>
+          </div>
+        </div>
+        <button class="button profile__add" type="button" aria-label="Добавить"></button>
+      </section>
+      <section class="cards">
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form  name="profile__form" class="popup__form">
+          <input type="text" class="popup__input popup__input_type_name" name="name" >
+          <input type="text" class="popup__input popup__input_type_about" name="about">
+          <button class="button popup__save"  type="submit" aria-label="Сохранить">Сохранить</button>
+        </form>
+        <button class="popup__close" type="button" aria-label="Закрыть"></button>
       </div>
-      <script src="./scripts/index.js"></script>
-   </body>
+    </div>
+    <div class="card-form">
+      <div class="card-form__container">
+        <h2 class="card-form__title">Новое место</h2>
+        <form  name="card-form" class="card-form__form">
+          <input type="text" class="card-form__input card-form__input_type_place" name="place" placeholder="Название">
+          <input type="text" class="card-form__input card-form__input_type_link" name="link" placeholder="Ссылка на картинку">
+          <button class="button card-form__submit-btn"  type="submit" aria-label="Сохранить">Создать</button>
+        </form>
+        <button class="card-form__close-btn" type="button" aria-label="Закрыть"></button>
+      </div>
+    </div>
+    <div class="img-zoom">
+      <div class="img-zoom__container">
+        <button class="img-zoom__clsbtn"></button>
+        <img src="#" alt="" class="img-zoom__img">
+        <p class="img-zoom__title"></p>
+      </div>
+    </div>
+    <template id="card-item__template">
+      <div class="card-item">
+        <button class="card-item__trash"></button>
+        <img  alt="#" src="#" class="card-item__image">
+        <div class="card-item__data">
+          <h2 class="card-item__title"></h2>
+          <button class="card-item__like" type="button" aria-label="Лайк"></button>
+        </div>
+      </div>
+    </template>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
