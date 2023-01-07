@@ -38,8 +38,8 @@ popupCloseButton.addEventListener('click', () => {
 
 const cardsContainer = document.querySelector('.cards');
 const cardForm = document.querySelector('.popup_card-form');
-const cardInputPlace = cardForm.querySelector('.popup__card-input_type_place');
-const cardInputLink = cardForm.querySelector('.popup__card-input_type_link');
+const cardInputPlace = cardForm.querySelector('.popup__input_type_place');
+const cardInputLink = cardForm.querySelector('.popup__input_type_link');
 const cardSubmitBtn = cardForm.querySelector('.popup__save_place_card-form');
 const cardCloseBtn = cardForm.querySelector('.popup__close_place_card-form');
 const cardsEdite = document.querySelector('.profile__add');
