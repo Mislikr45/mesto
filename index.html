@@ -33,7 +33,7 @@
     <div class="popup popup_edit-profile">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form  name="popup__form_edit-profile" class="popup__form popup__form_edit-profile">
+        <form  name="popup__form_edit-profile" class="popup__form popup__form_edit-profile" novalidate>
           
             <input type="text" class="popup__input popup__input_type_name" name="name" id="name" placeholder="Имя" required minlength="2" maxlength="40" >
             <span class="name-error popup__input-error"></span>
@@ -42,7 +42,7 @@
             <input type="text" class="popup__input popup__input_type_about" id="about" name="about" placeholder="Вид деятельности" required minlength="2" maxlength="200">
             <span class="about-error popup__input-error"></span>
           
-          <button class="button popup__save popup__save_valid popup__save_place_profile popup__save_valid"  type="submit" aria-label="Сохранить">Сохранить</button>
+          <button class="button popup__save popup__save_place_profile"  type="submit" aria-label="Сохранить">Сохранить</button>
         </form>
         <button class="popup__close popup__close_place_edit-profile" type="button" aria-label="Закрыть"></button>
       </div>
@@ -50,7 +50,7 @@
     <div class="popup popup_card-form">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form  name="popup__form_card-form" class="popup__form popup__form_card-form">
+        <form  name="popup__form_card-form" class="popup__form popup__form_card-form" novalidate>
           
             <input type="text" class="popup__input popup__input_type_place" id="place" name="place" placeholder="Название" required minlength="2" maxlength="30">
             <span class="place-error popup__input-error"></span>
