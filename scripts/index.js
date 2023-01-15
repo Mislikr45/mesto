@@ -109,3 +109,35 @@ buttonCloseAddCardForm.addEventListener('click', () => {
 popupImgCloseBtn.addEventListener('click', () => {
   closePopup(popupImg);
 });
+
+document.addEventListener('keydown', function(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupImg);
+    closePopup(popupEditeProfile);
+    closePopup(cardForm);
+  }
+});
+
+  
+
+    document.addEventListener('mousedown', function(e){
+      if(e.target.closest('.popup__container') === null){
+        closePopup(popupImg);
+        closePopup(popupEditeProfile);
+        closePopup(cardForm);
+      }
+  });
+  
+
+// константы валидации
+
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  activeButtonClass: 'popup__save_valid',
+  inactiveButtonClass: 'popup__save_invalid',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_visible'
+};
+enableValidation(validationConfig);
