@@ -1,5 +1,5 @@
-import Card from '../scripts/Card.js';
-import FormValidator from '../scripts/FormValidator.js';
+import Card from "../scripts/Card.js";
+import FormValidator from "../scripts/FormValidator.js";
 
 const initialCards = [
   {
@@ -27,8 +27,6 @@ const initialCards = [
     link: "./images/baikal.jpg",
   },
 ];
-
-
 
 const popupEditeProfile = document.querySelector(".popup_edit-profile");
 const popup = document.querySelector(".popup");
@@ -82,17 +80,14 @@ const cardInputPlace = cardForm.querySelector(".popup__input_type_place");
 const cardInputLink = cardForm.querySelector(".popup__input_type_link");
 const buttonOpenAddCardForm = document.querySelector(".profile__add");
 
-
 const renderCard = (todoDate) => {
-  const card = new Card (todoDate)
+  const card = new Card(todoDate);
   cardsContainer.prepend(card.getView());
-  
 };
 
-initialCards.forEach((todoDate)=> {
+initialCards.forEach((todoDate) => {
   renderCard(todoDate);
 });
-
 
 const submitAddCardForm = (event) => {
   event.preventDefault();
@@ -112,7 +107,6 @@ buttonOpenAddCardForm.addEventListener("click", () => {
   openPopup(cardForm);
 });
 
-
 const popupList = document.querySelectorAll(".popup");
 popupList.forEach((popup) => {
   popup.addEventListener("mousedown", (evt) => {
@@ -121,7 +115,6 @@ popupList.forEach((popup) => {
     }
   });
 });
-
 
 popupList.forEach((popup) => {
   popup.addEventListener("click", (evt) => {
@@ -141,7 +134,10 @@ const validationConfig = {
   errorClass: "popup__input-error_visible",
 };
 
-const validationEditForm = new FormValidator(validationConfig, popupEditeProfile);
+const validationEditForm = new FormValidator(
+  validationConfig,
+  popupEditeProfile
+);
 validationEditForm.enableValidation();
 
 const validationAddCardForm = new FormValidator(validationConfig, cardForm);
