@@ -1,42 +1,20 @@
 import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "./images/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "./images/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "./images/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "./images/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "./images/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "./images/baikal.jpg",
-  },
-];
+import openPopup from "./utils.js";
 
 const popupEditeProfile = document.querySelector(".popup_edit-profile");
-const popup = document.querySelector(".popup");
-const popupContent = popup.querySelector(".popup__content");
 const popupNameInput = document.querySelector(".popup__input_type_name");
 const poupAboutInput = document.querySelector(".popup__input_type_about");
 const buttonOpenEditProfileForm = document.querySelector(".profile__edite");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const buttonCloseList = document.querySelectorAll(".popup__close");
+
+const cardsContainer = document.querySelector(".cards");
+const cardForm = document.querySelector(".popup_card-form");
+const cardInputPlace = cardForm.querySelector(".popup__input_type_place");
+const cardInputLink = cardForm.querySelector(".popup__input_type_link");
+const buttonOpenAddCardForm = document.querySelector(".profile__add");
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
@@ -48,23 +26,18 @@ buttonCloseList.forEach((btn) => {
   btn.addEventListener("click", () => closePopup(popup));
 });
 
-function closeByEsc(evt) {
+export function closeByEsc(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
     closePopup(openedPopup);
   }
 }
 
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeByEsc);
-}
-
 function submitEditProfileForm(evt) {
-  evt.preventDefault(evt),
-    (profileName.textContent = popupNameInput.value),
-    (profileAbout.textContent = poupAboutInput.value),
-    closePopup(popupEditeProfile);
+  evt.preventDefault(evt);
+  profileName.textContent = popupNameInput.value;
+  profileAbout.textContent = poupAboutInput.value;
+  closePopup(popupEditeProfile);
 }
 
 popupEditeProfile.addEventListener("submit", submitEditProfileForm);
@@ -73,12 +46,6 @@ buttonOpenEditProfileForm.addEventListener("click", () => {
   poupAboutInput.value = profileAbout.textContent;
   openPopup(popupEditeProfile);
 });
-
-const cardsContainer = document.querySelector(".cards");
-const cardForm = document.querySelector(".popup_card-form");
-const cardInputPlace = cardForm.querySelector(".popup__input_type_place");
-const cardInputLink = cardForm.querySelector(".popup__input_type_link");
-const buttonOpenAddCardForm = document.querySelector(".profile__add");
 
 const renderCard = (todoDate) => {
   const card = new Card(todoDate);
@@ -98,7 +65,7 @@ const submitAddCardForm = (event) => {
   cardInputLink.value = "";
   const button = event.submitter;
   button.classList.add("popup__save_invalid");
-  button.disabled = true;
+  validationAddCardForm.disableSubmitButton();
   closePopup(cardForm);
 };
 
@@ -110,14 +77,6 @@ buttonOpenAddCardForm.addEventListener("click", () => {
 const popupList = document.querySelectorAll(".popup");
 popupList.forEach((popup) => {
   popup.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("popup")) {
-      closePopup(popup);
-    }
-  });
-});
-
-popupList.forEach((popup) => {
-  popup.addEventListener("click", (evt) => {
     if (evt.target.classList.contains("popup")) {
       closePopup(popup);
     }
