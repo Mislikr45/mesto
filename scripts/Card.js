@@ -1,20 +1,21 @@
-import { openPopup } from "./index.js";
+import openPopup from "./utils.js";
 class Card {
   constructor({ link, name }) {
     this._name = name;
     this._link = link;
+    this._template = document.querySelector("#card-item__template");
   }
 
   _getTemplateCard() {
-    const card = document
-      .querySelector("#card-item__template")
-      .content.querySelector(".card-item")
+    const card = this._template.content
+      .querySelector(".card-item")
       .cloneNode(true);
 
     return card;
   }
 
   _handleDelete() {
+    console.log(this._newCard);
     this._newCard.remove();
   }
 
@@ -46,7 +47,6 @@ class Card {
     this._popupImg.alt = this._name;
     this._popupTag.textContent = this._name;
     openPopup(popupZoom);
-    console.log(this._popupImg);
   }
   _setData() {
     const name = this._newCard.querySelector(".card-item__title");
