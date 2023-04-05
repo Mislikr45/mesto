@@ -51,7 +51,6 @@ const submitAddCardForm = (event) => {
   const name = cardInputPlace.value;
   renderCard({ name, link });
   cardInputPlace.value = "";
-  button.classList.add("popup__save_invalid");
   validationAddCardForm.disableSubmitButton();
   closePopup(cardForm);
 };
