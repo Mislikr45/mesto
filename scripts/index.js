@@ -1,6 +1,6 @@
 import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
-import openPopup from "./utils.js";
+import { openPopup, closePopup } from "./utils.js";
 
 const popupEditeProfile = document.querySelector(".popup_edit-profile");
 const popupNameInput = document.querySelector(".popup__input_type_name");
@@ -9,6 +9,7 @@ const buttonOpenEditProfileForm = document.querySelector(".profile__edite");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const buttonCloseList = document.querySelectorAll(".popup__close");
+const templateSelector = document.querySelector("#card-item__template");
 
 const cardsContainer = document.querySelector(".cards");
 const cardForm = document.querySelector(".popup_card-form");
@@ -16,22 +17,10 @@ const cardInputPlace = cardForm.querySelector(".popup__input_type_place");
 const cardInputLink = cardForm.querySelector(".popup__input_type_link");
 const buttonOpenAddCardForm = document.querySelector(".profile__add");
 
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeByEsc);
-}
-
 buttonCloseList.forEach((btn) => {
   const popup = btn.closest(".popup");
   btn.addEventListener("click", () => closePopup(popup));
 });
-
-export function closeByEsc(evt) {
-  if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
-  }
-}
 
 function submitEditProfileForm(evt) {
   evt.preventDefault(evt);
@@ -48,7 +37,7 @@ buttonOpenEditProfileForm.addEventListener("click", () => {
 });
 
 const renderCard = (todoDate) => {
-  const card = new Card(todoDate);
+  const card = new Card(todoDate, templateSelector);
   cardsContainer.prepend(card.getView());
 };
 
@@ -62,8 +51,6 @@ const submitAddCardForm = (event) => {
   const name = cardInputPlace.value;
   renderCard({ name, link });
   cardInputPlace.value = "";
-  cardInputLink.value = "";
-  const button = event.submitter;
   button.classList.add("popup__save_invalid");
   validationAddCardForm.disableSubmitButton();
   closePopup(cardForm);
@@ -101,4 +88,3 @@ validationEditForm.enableValidation();
 
 const validationAddCardForm = new FormValidator(validationConfig, cardForm);
 validationAddCardForm.enableValidation();
-export { openPopup };
