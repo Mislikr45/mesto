@@ -1,9 +1,9 @@
-import openPopup from "./utils.js";
+import {openPopup} from './utils.js';
 class Card {
-  constructor({ link, name }) {
+  constructor({ link, name }, templateSelector) {
     this._name = name;
     this._link = link;
-    this._template = document.querySelector("#card-item__template");
+    this._template = templateSelector;
   }
 
   _getTemplateCard() {
