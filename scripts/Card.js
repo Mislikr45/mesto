@@ -1,9 +1,9 @@
 import {openPopup} from './utils.js';
 class Card {
-  constructor({ link, name }, templateSelector) {
+  constructor({ link, name }, template) {
     this._name = name;
     this._link = link;
-    this._template = templateSelector;
+    this._template = template;
   }
 
   _getTemplateCard() {
@@ -15,8 +15,7 @@ class Card {
   }
 
   _handleDelete() {
-    console.log(this._newCard);
-    this._newCard.remove();
+     this._newCard.remove();
   }
 
   _handleCheckTodoCard() {
