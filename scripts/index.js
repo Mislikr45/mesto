@@ -9,7 +9,7 @@ const buttonOpenEditProfileForm = document.querySelector(".profile__edite");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const buttonCloseList = document.querySelectorAll(".popup__close");
-const templateSelector = document.querySelector("#card-item__template");
+const template = document.querySelector("#card-item__template");
 
 const cardsContainer = document.querySelector(".cards");
 const cardForm = document.querySelector(".popup_card-form");
@@ -37,7 +37,7 @@ buttonOpenEditProfileForm.addEventListener("click", () => {
 });
 
 const renderCard = (todoDate) => {
-  const card = new Card(todoDate, templateSelector);
+  const card = new Card(todoDate, template);
   cardsContainer.prepend(card.getView());
 };
 
@@ -51,6 +51,7 @@ const submitAddCardForm = (event) => {
   const name = cardInputPlace.value;
   renderCard({ name, link });
   cardInputPlace.value = "";
+  cardInputLink.value = ""; 
   validationAddCardForm.disableSubmitButton();
   closePopup(cardForm);
 };
