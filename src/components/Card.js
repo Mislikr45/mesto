@@ -1,21 +1,21 @@
-import {openPopup} from './utils.js';
 class Card {
-  constructor({ link, name }, template) {
+  constructor({ link, name }, template, openPopupImage, set) {
     this._name = name;
     this._link = link;
     this._template = template;
+    this._openPopupImage = openPopupImage;
+    this._set = set;
   }
 
   _getTemplateCard() {
     const card = this._template.content
       .querySelector(".card-item")
       .cloneNode(true);
-
     return card;
   }
 
   _handleDelete() {
-     this._newCard.remove();
+    this._newCard.remove();
   }
 
   _handleCheckTodoCard() {
@@ -34,19 +34,10 @@ class Card {
     this._newCard
       .querySelector(".card-item__image")
       .addEventListener("click", () => {
-        this._handlePreviewPicture();
+        this._openPopupImage(this._title, this._link);
       });
   }
 
-  _handlePreviewPicture() {
-    const popupZoom = document.querySelector(".popup_img-zoom");
-    this._popupImg = popupZoom.querySelector(".popup__img");
-    this._popupTag = popupZoom.querySelector(".popup__tag");
-    this._popupImg.src = this._link;
-    this._popupImg.alt = this._name;
-    this._popupTag.textContent = this._name;
-    openPopup(popupZoom);
-  }
   _setData() {
     const name = this._newCard.querySelector(".card-item__title");
     name.textContent = this._name;
@@ -59,7 +50,6 @@ class Card {
     this._newCard = this._getTemplateCard();
     this._setEventListeners();
     this._setData();
-
     return this._newCard;
   }
 }
