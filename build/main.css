@@ -482,12 +482,6 @@ template {
         grid-row: 2;
         }
 }
-.profile__avatar {
-    max-width: 120px;
-    max-height: 120px;
-    border-radius: 120px;
-    object-fit: cover;
-}
 .profile__data {
     display: flex;
     flex-direction: row;
@@ -724,41 +718,6 @@ background-image: url(images/like-selected..png);
     max-height: 120px;
     border-radius: 120px;
     object-fit: cover;
-}
-.profile__data {
-    display: flex;
-    flex-direction: row;
-    gap: 29px;
-}
-
-@media screen and (max-width: 880px) {
-    .profile__data {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 26px;
-        }
-}
-.profile__name {
-    margin: 0;
-    font-family: Inter;
-    font-size: 42px;
-    font-weight: 500;
-    line-height: 48px;
-    max-width: 330px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-@media screen and (max-width: 880px) {
-    .profile__name{
-    margin-left: 34px;
-    font-size: 27px;
-    font-weight: 500;
-    line-height: 33px;
-    max-width: 270px;
-}
 }
 .popup {
   display: flex;
