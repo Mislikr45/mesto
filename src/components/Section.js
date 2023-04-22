@@ -12,8 +12,7 @@ export default class Section {
     }
   
     addItem(item) {
-      console.log(item);
-      this._container.prepend(item);
+        this._container.prepend(item);
     }
   }
   

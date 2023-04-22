@@ -21,14 +21,12 @@ const сardList = new Section(
     items: initialCards,
     renderer: (data) => {
       const card = createCard(data, template);
-
       сardList.addItem(card);
     },
   },
   ".cards"
 );
 
-console.log(сardList);
 сardList.renderItems();
 
 const userInfo = new UserInfo({
@@ -49,19 +47,15 @@ buttonOpenAddCardForm.addEventListener("click", () => {
 });
 
 function createCard({ name, link }, template, openPopupImage) {
-  console.log(name, link);
   const card = new Card({ name, link }, template, () =>
     popupWithImage.open(name, link)
   );
-  console.log(card);
-  return card.getView();
+   return card.getView();
 }
 
 const formPopupAddCard = new PopupWithForm({
   selector: ".popup_card-form",
   handleFormSubmit: (data) => {
-    console.log(data);
-
     сardList.addItem(createCard(data, template));
   },
 });
