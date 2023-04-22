@@ -1,11 +1,10 @@
 class Card {
-  constructor({ link, name }, template, openPopupImage, set) {
-    this._name = name;
-    this._link = link;
+  constructor(data, template, openPopupImage) {
+    this._name = data.name;
+    this._link = data.link;
     this._template = template;
     this._openPopupImage = openPopupImage;
-    this._set = set;
-  }
+}
 
   _getTemplateCard() {
     const card = this._template.content

@@ -1,5 +1,5 @@
-import './index.css';
-import {initialCards, validationConfig} from '../utils/constants.js'
+import "./index.css";
+import { initialCards, validationConfig } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -20,21 +20,15 @@ const сardList = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      const card = new Card(
-        data,
-        template,
+      const card = createCard(data, template);
 
-        () => popupWithImage.open(data.title, data.link)
-      );
-
-      const cardElement = card.getView();
-
-      сardList.addItem(cardElement);
+      сardList.addItem(card);
     },
   },
   ".cards"
 );
 
+console.log(сardList);
 сardList.renderItems();
 
 const userInfo = new UserInfo({
@@ -54,17 +48,20 @@ buttonOpenAddCardForm.addEventListener("click", () => {
   formPopupAddCard.open();
 });
 
-const createCard = ({ place, link } = data, template, openPopupImage) => {
-  console.log(place, link);
-  const cardHandle = new Card({ place, link }, template, () =>
-    popupWithImage.open(place, link)
+function createCard({ name, link }, template, openPopupImage) {
+  console.log(name, link);
+  const card = new Card({ name, link }, template, () =>
+    popupWithImage.open(name, link)
   );
-  return cardHandle.getView();
-};
+  console.log(card);
+  return card.getView();
+}
 
 const formPopupAddCard = new PopupWithForm({
   selector: ".popup_card-form",
   handleFormSubmit: (data) => {
+    console.log(data);
+
     сardList.addItem(createCard(data, template));
   },
 });
@@ -88,14 +85,13 @@ formPopupAddCard.setEventListeners();
 popupWithImage.setEventListeners();
 
 //Функция создания карточки
-
-
-
 const validationEditForm = new FormValidator(
   validationConfig,
   popupEditeProfile
 );
+
 validationEditForm.enableValidation();
 
 const validationAddCardForm = new FormValidator(validationConfig, cardForm);
+
 validationAddCardForm.enableValidation();

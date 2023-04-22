@@ -23,12 +23,12 @@ module.exports = {
         static: {
           directory: path.join(__dirname, 'build'),
         },
-        // compress: true,
+        compress: true,
         port: 9000,
+        open:true,
       },
       module: {
-        rules: [
-                       
+        rules: [                      
 
           {
             test: /\.(?:js|mjs|cjs)$/,
