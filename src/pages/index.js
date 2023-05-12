@@ -155,10 +155,8 @@ const formPopupChangeAvatar = new PopupWithForm(".popup_avatar", {
 
 // слушатель открытия попапа аватара
 avatarBtn.addEventListener("click", () => {
-  console.log("аватар");
   formPopupChangeAvatar.open();
-  console.log("гавное ебаное");
-});
+ });
 
 //слушатель на форму аватара
 formPopupChangeAvatar.setEventListeners();
