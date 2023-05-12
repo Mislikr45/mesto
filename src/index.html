@@ -15,7 +15,9 @@
     <main class="content">
       <section class="profile">
         <div class="profile__data">
+          <button class="profile__button-avatar" type="button">
           <img class="profile__avatar" alt="фото" src="<%=require('./images/image.jpg')%>">
+        </button> 
           <div class="profile__main">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__edite" type="button"></button>
@@ -64,6 +66,7 @@
         <button class="popup__close popup__close_place_card-form" type="button" aria-label="Закрыть"></button>
       </div>
     </div>
+
     <div class="popup popup_img-zoom">
       <div class="popup__img-zomm-container">
         <button class="popup__close popup__close_place_img-zoom">
@@ -72,16 +75,50 @@
         <p class="popup__tag"></p>
       </div>
     </div>
+
+    <div class="popup popup_confirm">
+      <div class="popup__container">
+        <h2 class="popup__title popup__title_place_confirm">Вы уверены?</h2>
+            
+        <button class="button popup__save popup__save_place_yes"  type="submit" aria-label="Да">Да</button>
+        
+        <button class="popup__close popup__close_place_confirm" type="button" aria-label="Закрыть"></button>
+      </div>
+      </div>
+
+
+      <div class="popup popup_avatar">
+        <div class="popup__container">
+          <h2 class="popup__title popup__title_place_avatar">Обновить аватар</h2>
+          <form  name="popup__form_avatar-form" class="popup__form popup__form_avatar-form" novalidate>
+            
+            <input type="url" class="popup__input popup__input_type_link" id="link" name="avatar" placeholder="Ссылка на аватар" required>
+            <span class="link-error popup__input-error"></span>
+                       
+                          
+            <button class="button popup__save popup__save_invalid popup__save_place_avatar popup__save_valid"  type="submit" aria-label="Сохранить">Сохранить</button>
+          </form>
+          <button class="popup__close popup__close_place_avatar" type="button" aria-label="Закрыть"></button>
+        </div>
+      </div>
+   
+
+
     <template id="card-item__template">
       <div class="card-item">
         <button class="card-item__trash"></button>
         <img  alt="#" src="#" class="card-item__image">
         <div class="card-item__data">
           <h2 class="card-item__title"></h2>
-          <button class="card-item__like" type="button" aria-label="Лайк"></button>
+          <div class="card-item__like-container">
+            <button class="card-item__like" type="button" aria-label="Лайк"></button>
+            <p class="card-item__like-amount">0</p>
+          </div>
+          
         </div>
       </div>
     </template>
     </div>
+    <!-- <script async src="./pages/index.js" type="module"></script>  -->
   </body>
 </html>

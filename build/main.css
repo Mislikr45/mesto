@@ -482,6 +482,32 @@ template {
         grid-row: 2;
         }
 }
+.profile__button-avatar {
+    border: none;
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile__button-avatar:hover {
+    background-image: url(images/pencel..svg);
+    background-color: rgba(0,0,0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  26px 26px;
+    opacity: 0,8;
+    border-radius: 50%;
+    content: "";
+    
+    width: 120px;
+    height: 120px;
+    transition: 1s opacity;
+  }
+  
+
 .profile__data {
     display: flex;
     flex-direction: row;
@@ -609,6 +635,22 @@ template {
 }
 
 
+.card-item__like-amount {
+  color: black;
+  font-family: Inter;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  padding: 0;
+  margin: 0;
+  padding-top: 3px;
+}
+.card-item__like-container {
+    color:black;
+    display:flex;
+    flex-direction: column;
+}
 .card-item__trash {
    position: absolute;
    background-image: url(images/Trash..svg);
@@ -714,10 +756,21 @@ background-image: url(images/like-selected..png);
     }   
 }
 .profile__avatar {
-    max-width: 120px;
-    max-height: 120px;
-    border-radius: 120px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     object-fit: cover;
+    overflow: hidden;
+}
+
+.profile__avatar:hover {
+   opacity: 0.8;
+   background-image: url(images/avatarEdit..svg);
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 26px 26px;
+   cursor: pointer;
+
 }
 .popup {
   display: flex;
@@ -932,4 +985,8 @@ background-image: url(images/like-selected..png);
 .popup_img-zoom {
     background-color: rgba(0, 0, 0, 0.9);
 }
+.popup__title_place_confirm {
+    margin-bottom:20px;
+}
+
 
