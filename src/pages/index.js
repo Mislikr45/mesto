@@ -22,11 +22,8 @@ const avatarBtn = document.querySelector(".profile__avatar");
 let userId;
 // const userId= api.getUserInfo().then(PromiseResult => PromiseResult._id);
 
-
-
-
-Promise.all([api.getUserInfo(), api.getCardInfo()]).then(([user, card]) => {  
-  userId=user._id;
+Promise.all([api.getUserInfo(), api.getCardInfo()]).then(([user, card]) => {
+  userId = user._id;
   userInfo.setUserInfo(user);
   cardList.rendersItem(card, userId);
 });
@@ -80,15 +77,19 @@ const formPopupEditProfile = new PopupWithForm(".popup_edit-profile", {
     formPopupEditProfile.renderLoading("Сохранение...");
     api
       .editeProfile(values)
-      .then((res) => {        
+      .then((res) => {
         userInfo.setUserInfo(res);
         formPopupAddCard.finalLoading();
       })
-      .then(() =>{formPopupEditProfile.close()})
+      .then(() => {
+        formPopupEditProfile.close();
+      })
       .catch((err) => {
         console.log(err);
-      }) 
-      .finally(() => { formPopupEditProfile.finalLoading()})   
+      })
+      .finally(() => {
+        formPopupEditProfile.finalLoading();
+      });
   },
 });
 
@@ -97,7 +98,7 @@ formPopupEditProfile.setEventListeners();
 
 // слушатель открытия попапа профиля
 buttonOpenEditProfileForm.addEventListener("click", () => {
-  const user=userInfo.getUserInfo();
+  const user = userInfo.getUserInfo();
   formPopupEditProfile.open();
   popupNameInput.value = user.name;
   poupAboutInput.value = user.about;
@@ -111,17 +112,22 @@ const formPopupAddCard = new PopupWithForm(".popup_card-form", {
     api
       .handleAddCardApi(data)
       .then((cardElement) => {
-        cardList.addItemPrepend(createCard(cardElement));       
+        cardList.addItemPrepend(createCard(cardElement));
       })
-      .then(() =>{
-        formPopupAddCard.close()})
+      .then(() => {
+        formPopupAddCard.close();
+      })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => { formPopupAddCard.finalLoading();
-        const btnSaveAvatar=document.querySelector('.popup__save_place_avatar');
-        btnSaveAvatar.classList.add('popup__save_invalid');
-        btnSaveAvatar.disabled = true;}) 
+      .finally(() => {
+        formPopupAddCard.finalLoading();
+        const btnSaveAvatar = document.querySelector(
+          ".popup__save_place_avatar"
+        );
+        btnSaveAvatar.classList.add("popup__save_invalid");
+        btnSaveAvatar.disabled = true;
+      });
   },
 });
 
@@ -142,11 +148,15 @@ const confirmDelete = new FormConfirmDeletCard(".popup_confirm", {
       .then(() => {
         card.removeCard();
       })
-      .then(() =>{confirmDelete.close()})
+      .then(() => {
+        confirmDelete.close();
+      })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => { confirmDelete.finalLoading()}) 
+      .finally(() => {
+        confirmDelete.finalLoading();
+      });
   },
 });
 
@@ -162,22 +172,27 @@ const formPopupChangeAvatar = new PopupWithForm(".popup_avatar", {
       .then((res) => {
         userInfo.setUserInfo(res);
       })
-      .then(() =>{ formPopupChangeAvatar.close()})
+      .then(() => {
+        formPopupChangeAvatar.close();
+      })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => { formPopupChangeAvatar.finalLoading()
-        const btnSaveAvatar=document.querySelector('.popup__save_place_card-form')
-        btnSaveAvatar.classList.add('popup__save_invalid');
-        btnSaveAvatar.disabled = true;}) 
-      
+      .finally(() => {
+        formPopupChangeAvatar.finalLoading();
+        const btnSaveAvatar = document.querySelector(
+          ".popup__save_place_card-form"
+        );
+        btnSaveAvatar.classList.add("popup__save_invalid");
+        btnSaveAvatar.disabled = true;
+      });
   },
 });
 
 // слушатель открытия попапа аватара
 avatarBtn.addEventListener("click", () => {
   formPopupChangeAvatar.open();
- });
+});
 
 //слушатель на форму аватара
 formPopupChangeAvatar.setEventListeners();
