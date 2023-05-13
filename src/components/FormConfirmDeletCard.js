@@ -3,8 +3,10 @@ import Popup from "./Popup.js";
 export default class FormConfirmDeletCard extends Popup {
   constructor(selector, { submitCallback }) {
     super(selector);
+    
     this._buttonSubmit= this._popupElement.querySelector('.popup__save_place_yes');
     this._submitCallback = submitCallback;
+    this.defaultText = this._buttonSubmit.textContent;
   }
 
   // Открытие попапа с айди
@@ -23,8 +25,7 @@ export default class FormConfirmDeletCard extends Popup {
     });
   }
   renderLoading(loadingText) {
-    this.defaultText = this._buttonSubmit.textContent;
-        this._buttonSubmit.textContent = loadingText;
+    this._buttonSubmit.textContent = loadingText;
   }
   finalLoading() {
     this._buttonSubmit.textContent = this.defaultText;

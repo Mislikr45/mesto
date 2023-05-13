@@ -82,7 +82,7 @@ const formPopupEditProfile = new PopupWithForm(".popup_edit-profile", {
         formPopupAddCard.finalLoading();
       })
       .then(() => {
-        formPopupEditProfile.close();
+        formPopupEditProfile.close();        
       })
       .catch((err) => {
         console.log(err);
@@ -116,17 +116,13 @@ const formPopupAddCard = new PopupWithForm(".popup_card-form", {
       })
       .then(() => {
         formPopupAddCard.close();
+        validationAddCardForm.disableSubmitButton();
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
         formPopupAddCard.finalLoading();
-        const btnSaveAvatar = document.querySelector(
-          ".popup__save_place_avatar"
-        );
-        btnSaveAvatar.classList.add("popup__save_invalid");
-        btnSaveAvatar.disabled = true;
       });
   },
 });
@@ -174,17 +170,13 @@ const formPopupChangeAvatar = new PopupWithForm(".popup_avatar", {
       })
       .then(() => {
         formPopupChangeAvatar.close();
+        validationEditAvatar.disableSubmitButton();
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
         formPopupChangeAvatar.finalLoading();
-        const btnSaveAvatar = document.querySelector(
-          ".popup__save_place_card-form"
-        );
-        btnSaveAvatar.classList.add("popup__save_invalid");
-        btnSaveAvatar.disabled = true;
       });
   },
 });
