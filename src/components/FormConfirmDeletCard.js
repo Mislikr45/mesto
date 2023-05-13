@@ -3,7 +3,7 @@ import Popup from "./Popup.js";
 export default class FormConfirmDeletCard extends Popup {
   constructor(selector, { submitCallback }) {
     super(selector);
-    // this._buttonSubmit= this._popupElement.querySelector('.popup__save_place_yes');
+    this._buttonSubmit= this._popupElement.querySelector('.popup__save_place_yes');
     this._submitCallback = submitCallback;
   }
 
@@ -19,8 +19,14 @@ export default class FormConfirmDeletCard extends Popup {
     super.setEventListeners();
     this._buttonSubmit.addEventListener("click", (evt) => {
       evt.preventDefault();
-      super.close();
       this._submitCallback(this);
     });
+  }
+  renderLoading(loadingText) {
+    this.defaultText = this._buttonSubmit.textContent;
+        this._buttonSubmit.textContent = loadingText;
+  }
+  finalLoading() {
+    this._buttonSubmit.textContent = this.defaultText;
   }
 }

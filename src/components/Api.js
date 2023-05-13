@@ -69,15 +69,13 @@ export default class Api {
         method: "PUT",
         headers: this._headers,
       })
-        .then((res) => (res.ok ? res.json() : Promise.reject(`${res.status}`)))
-        .catch(console.log);
+      .then(this._failData);
     } else {
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: "DELETE",
         headers: this._headers,
       })
-        .then((res) => (res.ok ? res.json() : Promise.reject(`${res.status}`)))
-        .catch(console.log);
+      .then(this._failData);
     }
   }
 }

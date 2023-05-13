@@ -5,9 +5,9 @@ class PopupWithForm extends Popup {
     super(selector);
 
     this._submitCallback = submitCallback;
-
     this._form = this._popupElement.querySelector(".popup__form");
     this._inputList = this._form.querySelectorAll(".popup__input");
+    this._buttonSubmit = this._popupElement.querySelector(".popup__save");
   }
 
   _getInputValues() {
@@ -32,9 +32,18 @@ class PopupWithForm extends Popup {
     });
   }
 
+
   close() {
     super.close();
     this._form.reset();
+  }
+
+  renderLoading(loadingText) {
+    this.defaultText = this._buttonSubmit.textContent;
+        this._buttonSubmit.textContent = loadingText;
+  }
+  finalLoading() {
+    this._buttonSubmit.textContent = this.defaultText;
   }
 }
 

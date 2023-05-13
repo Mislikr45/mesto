@@ -2,6 +2,7 @@ class Card {
   constructor(
     data,
     template,
+    userId,
     handleImageClick,
     handleTrashClick,
     handleToggleLike
@@ -13,12 +14,14 @@ class Card {
     this._template = template;
     this._counter = data.likes.length;
     this.cardId = data._id;
-    this._userId = "a7dbb793144bff943d6be407";
+   
+    this._userId = userId;
     this._ownerId = data.owner._id;
     this._alt = data.name;
     this._handleImageClick = handleImageClick;
     this._handleTrashClick = handleTrashClick;
     this._handleToggleLike = handleToggleLike;
+    
   }
 
   _getTemplateCard() {
@@ -44,7 +47,7 @@ class Card {
       console.log("this.isLiked(this._likes)");
       this._likeButton.classList.add("card-item__like_selected");
     }
-
+    
     if (this._ownerId !== this._userId) {
       this._deleteCard.remove();
     }
